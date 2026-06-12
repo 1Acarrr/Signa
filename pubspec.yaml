@@ -1,0 +1,90 @@
+name: signa
+description: "İşaret dili tanıma uygulaması - Sign language recognition app"
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  
+  # Core dependencies
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.0
+  
+  # Camera & Vision
+  camera: ^0.11.3
+  image: ^4.1.0
+  
+  # AI/ML
+  hand_landmarker: ^2.1.2
+  path_provider: ^2.1.1
+  speech_to_text: ^7.4.0
+  flutter_tts: ^3.8.5
+  google_generative_ai: ^0.4.3
+  
+  # Firebase
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.0
+  cloud_firestore: ^5.4.0
+  firebase_storage: ^12.3.0
+#  google_sign_in: ^6.2.1
+  
+  # UI & Navigation
+  go_router: ^13.0.0
+  
+  # Storage
+  shared_preferences: ^2.2.2
+  
+  # Utilities
+  intl: ^0.20.2
+  uuid: ^4.0.0
+  http: ^1.1.0
+  google_fonts: ^6.2.1
+  google_sign_in: 6.2.1
+  gif: ^2.3.0
+  web_socket_channel: ^3.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
+  min_sdk_android: 21
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/images/kategori/
+    - assets/images/avatars/
+    - assets/lottie/
+    - assets/gifs/
+    - assets/gifs/temel-iletisim/
+    - assets/gifs/günlük-ihtiyaclar/
+    - assets/gifs/kisiler/
+    - assets/gifs/mekanlar/
+    - assets/gifs/duygular/
+    - assets/gifs/fiiller/
+    - assets/gifs/harfler/
+    
+#  fonts:
+#    - family: Poppins
+#      fonts:
+#        - asset: assets/fonts/Poppins-Regular.ttf
+#        - asset: assets/fonts/Poppins-Bold.ttf
+#          weight: 700
+#        - asset: assets/fonts/Poppins-SemiBold.ttf
+#          weight: 600

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "704610476441",
+    "project_id": "signa-e928a",
+    "storage_bucket": "signa-e928a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704610476441:android:68a5432cfa25a0f2953308",
+        "android_client_info": {
+          "package_name": "com.signa.signa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_-mMReEfyXUzgPu_U8b3wSQE6NyA8P7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
