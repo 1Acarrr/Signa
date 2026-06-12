@@ -45,18 +45,25 @@ git clone https://github.com/1Acarrr/Signa.git
 cd Signa
 ```
 
-### 3. Sunucu Kurulumu (WebRTC Signaling Server)
-ÖNEMLİ NOT: **Yapay zeka modeli (TFLite) sunucuda DEĞİL, tamamen telefonun içinde (lokal olarak) çalışır.** Bu sayede işaret dili çevirisi için internete ihtiyacınız yoktur ve çeviri çok hızlı gerçekleşir. 
+### 3. Yapay Zeka Sunucu Kurulumu (Python ML Server)
+ÖNEMLİ NOT: Uygulamanın işaret dilini tanıyabilmesi için görüntüleri işleyen yapay zeka modeli (TFLite) bilgisayarınızda çalışan bir **Python WebSocket Sunucusu** üzerinden hizmet verir. Telefon, kameradan aldığı görüntüleri bu sunucuya gönderir ve sunucu işleyip sonucu geri döner.
 
-Buradaki Node.js sunucusu, sadece "Karşılıklı İletişim" sayfasındaki iki farklı telefonun birbiriyle eşleşmesini, WebRTC (görüntülü görüşme) sinyallerinin ve mesajların aktarılmasını sağlayan bir **Sinyal Sunucusudur (Signaling Server).**
+Sunucuyu başlatmak için yeni bir komut istemi (CMD veya Terminal) açın ve model klasörüne gidin:
 
 ```bash
-cd server
-npm install
-npm start
+cd model_training
+python server.py
 ```
-Sunucu varsayılan olarak `localhost:3000` portunda çalışmaya başlayacaktır.
-*(Not: Telefon üzerinden test ederken, telefonunuzun bilgisayarla aynı ağda olduğundan emin olun ve Flutter tarafındaki (websocket_service.dart) WebSocket IP adresini `127.0.0.1` yerine bilgisayarınızın yerel IP adresi örn: `192.168.1.X` olarak değiştirin).*
+Sunucu `localhost:8765` portunda çalışmaya başlayacaktır.
+
+#### Telefonu Sunucuya Bağlama (ADB Reverse)
+Eğer uygulamayı fiziksel bir Android telefonda (USB ile bağlı) test ediyorsanız, telefonun bilgisayardaki sunucuya (localhost) erişebilmesi için port yönlendirmesi yapmanız GEREKİR. Aksi halde "Connection refused" hatası alırsınız.
+Aynı terminalde şu komutu çalıştırın:
+```bash
+adb reverse tcp:8765 tcp:8765
+```
+
+*(Not: Modelin çalışması için gereken `sign_model.tflite` ve `labels.txt` dosyaları `model_training/output/` klasörü içinde bulunur ve `server.py` tarafından otomatik olarak bu klasörden okunarak çalıştırılır.)*
 
 ### 4. Mobil Uygulama Kurulumu
 Yeni bir terminal sekmesi açın ve proje kök dizinine (Signa) gelin:
