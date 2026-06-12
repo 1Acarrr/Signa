@@ -45,15 +45,18 @@ git clone https://github.com/1Acarrr/Signa.git
 cd Signa
 ```
 
-### 3. Sunucu Kurulumu (Local Node.js Server)
-Uygulamanın gerçek zamanlı iletişim özellikleri WebSocket sunucusu gerektirir.
+### 3. Sunucu Kurulumu (WebRTC Signaling Server)
+ÖNEMLİ NOT: **Yapay zeka modeli (TFLite) sunucuda DEĞİL, tamamen telefonun içinde (lokal olarak) çalışır.** Bu sayede işaret dili çevirisi için internete ihtiyacınız yoktur ve çeviri çok hızlı gerçekleşir. 
+
+Buradaki Node.js sunucusu, sadece "Karşılıklı İletişim" sayfasındaki iki farklı telefonun birbiriyle eşleşmesini, WebRTC (görüntülü görüşme) sinyallerinin ve mesajların aktarılmasını sağlayan bir **Sinyal Sunucusudur (Signaling Server).**
+
 ```bash
 cd server
 npm install
 npm start
 ```
-Sunucu varsayılan olarak `localhost:37264` portunda çalışmaya başlayacaktır.
-*(Not: Telefon üzerinden test ederken, telefonunuzun bilgisayarla aynı ağda olduğundan emin olun ve Flutter tarafındaki WebSocket IP adresini `127.0.0.1` yerine bilgisayarınızın yerel IP adresi örn: `192.168.1.X` olarak değiştirin).*
+Sunucu varsayılan olarak `localhost:3000` portunda çalışmaya başlayacaktır.
+*(Not: Telefon üzerinden test ederken, telefonunuzun bilgisayarla aynı ağda olduğundan emin olun ve Flutter tarafındaki (websocket_service.dart) WebSocket IP adresini `127.0.0.1` yerine bilgisayarınızın yerel IP adresi örn: `192.168.1.X` olarak değiştirin).*
 
 ### 4. Mobil Uygulama Kurulumu
 Yeni bir terminal sekmesi açın ve proje kök dizinine (Signa) gelin:
