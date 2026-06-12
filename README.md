@@ -48,10 +48,10 @@ cd Signa
 ### 3. Yapay Zeka Sunucu Kurulumu (Python ML Server)
 ÖNEMLİ NOT: Uygulamanın işaret dilini tanıyabilmesi için görüntüleri işleyen yapay zeka modeli (TFLite) bilgisayarınızda çalışan bir **Python WebSocket Sunucusu** üzerinden hizmet verir. Telefon, kameradan aldığı görüntüleri bu sunucuya gönderir ve sunucu işleyip sonucu geri döner.
 
-Sunucuyu başlatmak için yeni bir komut istemi (CMD veya Terminal) açın ve model klasörüne gidin:
+Sunucuyu başlatmak için yeni bir komut istemi (CMD veya Terminal) açın ve ml_server klasörüne gidin:
 
 ```bash
-cd model_training
+cd ml_server
 python server.py
 ```
 Sunucu `localhost:8765` portunda çalışmaya başlayacaktır.
@@ -63,7 +63,7 @@ Aynı terminalde şu komutu çalıştırın:
 adb reverse tcp:8765 tcp:8765
 ```
 
-*(Not: Modelin çalışması için gereken `sign_model.tflite` ve `labels.txt` dosyaları `model_training/output/` klasörü içinde bulunur ve `server.py` tarafından otomatik olarak bu klasörden okunarak çalıştırılır.)*
+*(Not: Modelin çalışması için gereken `sign_model.tflite` ve `labels.txt` dosyaları uygulamanın ana dizinindeki `ml_server/` klasörü içinde hazır olarak bulunur ve `server.py` tarafından otomatik olarak okunur.)*
 
 ### 4. Mobil Uygulama Kurulumu
 Yeni bir terminal sekmesi açın ve proje kök dizinine (Signa) gelin:
